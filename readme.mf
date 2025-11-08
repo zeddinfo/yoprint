@@ -1,0 +1,23 @@
+# YoPrint Laravel CSV Upload
+
+Mini project Laravel untuk upload CSV, proses background, dan live status update.
+
+---
+
+## Requirements
+
+- PHP >= 7.3
+- Composer
+- Node.js & npm (untuk frontend build jika diperlukan)
+- Docker & Docker Compose (opsional)
+- SQLite (default, file `database/database.sqlite`)
+- Redis (opsional jika mau pakai queue driver redis)
+
+---
+
+## 1. Install & Setup (Lokal Tanpa Docker)
+
+1. Clone repo:
+```bash
+git clone <repo-url> yo-print
+cd yo-print

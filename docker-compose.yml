@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: yo-print-app
+    container_name: yo-print-app
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+    environment:
+      APP_ENV: local
+      APP_DEBUG: true
+      DB_CONNECTION: sqlite
+      QUEUE_CONNECTION: database
+      CACHE_DRIVER: file
+      SESSION_DRIVER: file
+
+  redis:
+    image: redis:6-alpine
+    container_name: yo-print-redis
+    ports:
+      - "6379:6379"
